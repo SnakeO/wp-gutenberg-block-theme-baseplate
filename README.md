@@ -161,7 +161,3 @@ wp-content/
 ## License
 
 GNU General Public License v2 or later. See [LICENSE](LICENSE) for details.
-
----
-
-*Media assets are AI-generated, except certain stock photos from Unsplash.*
