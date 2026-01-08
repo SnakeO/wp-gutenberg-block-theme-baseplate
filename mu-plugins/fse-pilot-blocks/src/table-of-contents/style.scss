@@ -1,0 +1,43 @@
+/**
+ * Table of Contents block - functional styles only.
+ * These ensure the block displays correctly without theme styles.
+ * Design/polish styles are in the theme.
+ */
+
+.wp-block-fse-pilot-table-of-contents {
+	display: flex;
+	flex-direction: column;
+	max-width: 315px;
+	overflow: hidden;
+
+	.toc-header {
+		padding: 1rem;
+	}
+
+	.toc-list {
+		display: flex;
+		flex-direction: column;
+		gap: 0.75rem;
+		padding: 1.5rem;
+	}
+
+	.toc-item {
+		text-decoration: none;
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+
+	.toc-sublist {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		padding-left: 1rem;
+	}
+
+	// Hide on mobile
+	@media (max-width: 599px) {
+		display: none;
+	}
+}

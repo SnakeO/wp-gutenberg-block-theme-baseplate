@@ -1,0 +1,40 @@
+/*!*************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./mu-plugins/fse-pilot-blocks/src/table-of-contents/style.scss ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************/
+/**
+ * Table of Contents block - functional styles only.
+ * These ensure the block displays correctly without theme styles.
+ * Design/polish styles are in the theme.
+ */
+.wp-block-fse-pilot-table-of-contents {
+  display: flex;
+  flex-direction: column;
+  max-width: 315px;
+  overflow: hidden;
+}
+.wp-block-fse-pilot-table-of-contents .toc-header {
+  padding: 1rem;
+}
+.wp-block-fse-pilot-table-of-contents .toc-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1.5rem;
+}
+.wp-block-fse-pilot-table-of-contents .toc-item {
+  text-decoration: none;
+}
+.wp-block-fse-pilot-table-of-contents .toc-item:hover {
+  text-decoration: underline;
+}
+.wp-block-fse-pilot-table-of-contents .toc-sublist {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding-right: 1rem;
+}
+@media (max-width: 599px) {
+  .wp-block-fse-pilot-table-of-contents {
+    display: none;
+  }
+}

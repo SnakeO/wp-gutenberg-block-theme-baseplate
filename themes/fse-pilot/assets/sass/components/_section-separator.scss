@@ -1,0 +1,14 @@
+.wp-block-heading.is-style-with-separator {
+	display: flex;
+	flex-wrap: nowrap;
+	align-items: center;
+	gap: var(--wp--preset--spacing--50, 24px);
+	width: 100%;
+
+	&::after {
+		content: "";
+		flex: 1 1 auto;
+		height: 1px;
+		background-color: currentcolor;
+	}
+}

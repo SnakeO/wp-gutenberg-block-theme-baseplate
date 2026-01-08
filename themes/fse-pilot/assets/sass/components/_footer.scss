@@ -1,0 +1,35 @@
+@use "variables" as *;
+
+@media (max-width: $breakpoint-mobile) {
+
+	.footer-bar {
+		flex-direction: column;
+		align-items: center;
+		gap: var(--wp--preset--spacing--50);
+
+		.wp-block-image {
+			margin: 0 auto var(--wp--preset--spacing--50) auto;
+		}
+
+		.wp-block-navigation {
+			justify-content: center;
+			font-size: var(--wp--preset--font-size--tiny);
+			--wp--style--block-gap: var(--wp--preset--spacing--50);
+		}
+
+		> p {
+			font-size: var(--wp--preset--font-size--small);
+			text-align: center;
+		}
+	}
+
+	.gold-gradient-top {
+		padding-left: var(--wp--preset--spacing--margins);
+		padding-right: var(--wp--preset--spacing--margins);
+	}
+
+	.gold-gradient-top .wp-block-group.has-background {
+		margin: 0 auto;
+		padding: var(--wp--preset--spacing--90) var(--wp--preset--spacing--50) var(--wp--preset--spacing--80) var(--wp--preset--spacing--50);
+	}
+}

@@ -1,0 +1,37 @@
+.pro-con {
+	margin-top: var(--wp--preset--spacing--60);
+	margin-bottom: var(--wp--preset--spacing--60);
+
+	&__container {
+		border-radius: 8px;
+		padding: 1px;
+	}
+
+	&__pros,
+	&__cons {
+		padding: var(--wp--preset--spacing--60);
+	}
+
+	&__pros {
+		border-radius: 8px;
+	}
+
+	&__title {
+		font-size: 36px;
+		font-style: normal;
+		font-weight: 700;
+		letter-spacing: -1%;
+		line-height: 1;
+	}
+
+	&__list {
+		font-style: normal;
+		font-weight: 500;
+		letter-spacing: 0;
+		line-height: 1.6;
+	}
+
+	&__item {
+		margin-bottom: var(--wp--preset--spacing--30);
+	}
+}

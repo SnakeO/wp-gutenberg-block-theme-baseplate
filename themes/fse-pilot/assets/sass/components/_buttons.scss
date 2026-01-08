@@ -1,0 +1,21 @@
+.btn-primary .wp-block-button__link,
+.btn-primary.wp-block-button__link {
+	background-color: var(--wp--preset--color--contrast-one);
+	color: var(--wp--preset--color--base-one);
+}
+
+.btn-secondary .wp-block-button__link,
+.btn-secondary.wp-block-button__link {
+	background-color: var(--wp--preset--color--gold);
+	color: var(--wp--preset--color--contrast-one);
+}
+
+.btn-primary .wp-block-button__link,
+.btn-primary.wp-block-button__link,
+.btn-secondary .wp-block-button__link,
+.btn-secondary.wp-block-button__link {
+	border-radius: 999px;
+	padding: 0.75rem 1.5rem;
+	font-size: var(--wp--preset--font-size--normal);
+	font-weight: 700;
+}

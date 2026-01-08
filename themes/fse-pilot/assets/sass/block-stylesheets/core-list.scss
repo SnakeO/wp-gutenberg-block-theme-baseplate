@@ -1,0 +1,27 @@
+.wp-block-post-content ol {
+	list-style: none;
+	counter-reset: list-counter;
+	padding-left: 0;
+
+	li {
+		counter-increment: list-counter;
+		padding-left: 2.5em;
+		position: relative;
+		margin-bottom: var(--wp--preset--spacing--50);
+
+		&::before {
+			content: counter(list-counter) ".";
+			position: absolute;
+			left: 0;
+			top: 0;
+			line-height: 1;
+			color: var(--wp--preset--color--accent-one);
+			font-weight: 700;
+			font-size: 38px;
+		}
+
+		strong {
+			font-weight: 700;
+		}
+	}
+}

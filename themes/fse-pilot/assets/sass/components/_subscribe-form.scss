@@ -1,0 +1,27 @@
+@use "variables" as *;
+
+.wp-block-fse-pilot-dummy-subscribe-form {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: var(--wp--preset--spacing--40);
+
+	.form-input {
+		width: 208px;
+	}
+}
+
+@media (max-width: $breakpoint-mobile) {
+
+	.wp-block-fse-pilot-dummy-subscribe-form {
+		flex-direction: column;
+		width: 100%;
+
+		.form-input,
+		.btn-secondary {
+			width: 100%;
+			max-width: 100%;
+			box-sizing: border-box;
+		}
+	}
+}

@@ -1,0 +1,7 @@
+.golden-glow {
+	filter: drop-shadow(0 0 16px var(--wp--custom--color-alpha--gold-glow));
+}
+
+.gold-gradient-top {
+	background: linear-gradient(to top, var(--wp--preset--color--gold) var(--wp--preset--spacing--80), transparent var(--wp--preset--spacing--80));
+}

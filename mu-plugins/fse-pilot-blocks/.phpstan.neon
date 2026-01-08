@@ -1,0 +1,12 @@
+includes:
+    - %currentWorkingDirectory%/vendor/a8cteam51/team51-configs/quality-assurance/phpstan.dist.neon
+
+parameters:
+    bootstrapFiles:
+        - %currentWorkingDirectory%/phpstan-bootstrap.php
+    scanDirectories:
+        - %currentWorkingDirectory%/plugins
+    paths:
+        - %currentWorkingDirectory%/mu-plugins/fse-pilot-blocks
+    WPCompat:
+        pluginFile: %currentWorkingDirectory%/mu-plugins/fse-pilot-blocks/fse-pilot-blocks.php

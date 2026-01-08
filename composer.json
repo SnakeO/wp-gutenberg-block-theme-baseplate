@@ -1,0 +1,106 @@
+{
+    "name": "a8cteam51/fse-pilot",
+    "type": "wordpress-project",
+
+    "description": "A demo project for showcasing standardized build processes for various asset types.",
+    "homepage": "https://fse-pilot-production.mystagingwebsite.com",
+    "license": "GPL-2.0-or-later",
+    "authors": [{
+        "name": "Contributors",
+        "homepage": "https://github.com/a8cteam51/block-theme-pilot-build-scaffold/graphs/contributors"
+    }],
+
+    "repositories": [{
+            "type": "vcs",
+            "url": "https://github.com/a8cteam51/team51-configs"
+        },
+        {
+            "type": "composer",
+            "url": "https://wpackagist.org",
+            "only": [
+                "wpackagist-plugin/*",
+                "wpackagist-theme/*"
+            ]
+        }
+    ],
+    "require": {
+        "php": ">=7.4",
+        "ext-json": "*"
+    },
+    "require-dev": {
+        "a8cteam51/team51-configs": "dev-trunk",
+        "wp-cli/i18n-command": "^2.6",
+        "roave/security-advisories": "dev-latest"
+    },
+
+    "scripts": {
+        "format:php": [
+            "@format:php:theme",
+            "@format:php:features"
+        ],
+        "format:php:theme": "phpcbf --standard=./themes/fse-pilot/.phpcs.xml --basepath=. ./themes/fse-pilot -v",
+        "format:php:features": "phpcbf --standard=./mu-plugins/fse-pilot-blocks/.phpcs.xml --basepath=. ./mu-plugins/fse-pilot-blocks -v",
+
+        "lint:php": [
+            "@lint:php:theme",
+            "@lint:php:features"
+        ],
+        "lint:php:theme": [
+            "@lint:php:theme:phpcs",
+            "@lint:php:theme:phpmd",
+            "@lint:php:theme:phpstan"
+        ],
+        "lint:php:theme:phpcs": "phpcs --standard=./themes/fse-pilot/.phpcs.xml --basepath=. ./themes/fse-pilot -v",
+        "lint:php:theme:phpmd": "phpmd ./themes/fse-pilot ansi ./themes/fse-pilot/.phpmd.xml -v",
+        "lint:php:theme:phpstan": "phpstan analyse -c ./themes/fse-pilot/.phpstan.neon -v --memory-limit=1G",
+
+        "lint:php:features": [
+            "@lint:php:features:phpcs",
+            "@lint:php:features:phpmd",
+            "@lint:php:features:phpstan"
+        ],
+        "lint:php:features:phpcs": "phpcs --standard=./mu-plugins/fse-pilot-blocks/.phpcs.xml --basepath=. ./mu-plugins/fse-pilot-blocks -v",
+        "lint:php:features:phpmd": "phpmd ./mu-plugins/fse-pilot-blocks ansi ./mu-plugins/fse-pilot-blocks/.phpmd.xml -v",
+        "lint:php:features:phpstan": "phpstan analyse -c ./mu-plugins/fse-pilot-blocks/.phpstan.neon -v --memory-limit=1G",
+
+        "internationalize": [
+            "@makepot:theme",
+            "@updatepo:theme",
+
+            "@makepot:features",
+            "@updatepo:features"
+        ],
+
+        "makepot:theme": "wp i18n make-pot themes/fse-pilot",
+        "updatepo:theme": "wp i18n update-po themes/fse-pilot/languages/a8csp-project-scaffold.pot",
+        "makemo:theme": "wp i18n make-mo themes/fse-pilot/languages",
+
+        "makepot:features": "wp i18n make-pot mu-plugins/fse-pilot-blocks",
+        "updatepo:features": "wp i18n update-po mu-plugins/fse-pilot-blocks/languages/fse-pilot-blocks.pot",
+        "makemo:features": "wp i18n make-mo mu-plugins/fse-pilot-blocks/languages",
+
+        "packages-install": "@composer install --ignore-platform-reqs --no-interaction",
+        "packages-update": [
+            "@composer clear-cache",
+            "@composer update --prefer-stable --ignore-platform-reqs --no-interaction"
+        ]
+    },
+    "config": {
+        "allow-plugins": {
+            "composer/*": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "phpstan/extension-installer": true
+        }
+    },
+
+    "extra": {
+        "installer-paths": {
+            "plugins/{$name}/": [
+                "type:wordpress-plugin"
+            ],
+            "themes/{$name}/": [
+                "type:wordpress-theme"
+            ]
+        }
+    }
+}

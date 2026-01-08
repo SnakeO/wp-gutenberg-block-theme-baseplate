@@ -1,0 +1,88 @@
+{
+    "name": "fse-pilot",
+    "version": "1.0.0",
+    "description": "A demo project for showcasing standardized build processes for various asset types.",
+    "author": {
+        "name": "WordPress.com Special Projects Team",
+        "url": "https://wpspecialprojects.wordpress.com/"
+    },
+    "license": "GPL-2.0-or-later",
+    "keywords": [
+        "wordpress",
+        "demo"
+    ],
+    "homepage": "https://fse-pilot-production.mystagingwebsite.com",
+    "repository": "https://github.com/a8cteam51/block-theme-pilot-build-scaffold",
+    "bugs": "https://github.com/a8cteam51/block-theme-pilot-build-scaffold/issues",
+    "private": true,
+    "engines": {
+        "node": ">=20.0",
+        "npm": ">=10.0"
+    },
+    "dependencies": {
+        "copy-webpack-plugin": "^13.0.1"
+    },
+    "devDependencies": {
+        "@csstools/postcss-sass": "^5.1.1",
+        "@wordpress/block-editor": "^14.10.1",
+        "@wordpress/blocks": "^14.4.1",
+        "@wordpress/browserslist-config": "^6.15.0",
+        "@wordpress/i18n": "^5.15.1",
+        "@wordpress/postcss-plugins-preset": "^5.15.1",
+        "@wordpress/scripts": "^30.8.1",
+        "npm-run-all": "^4.1.5",
+        "postcss-cli": "^11.0.0",
+        "rtlcss": "^4.1.1"
+    },
+    "rtlcssConfig": {
+        "options": {
+            "autoRename": false,
+            "autoRenameStrict": false,
+            "blacklist": {},
+            "clean": true,
+            "greedy": false,
+            "processUrls": false,
+            "stringMap": []
+        },
+        "plugins": [],
+        "map": false
+    },
+    "browserslist": [
+        "extends @wordpress/browserslist-config"
+    ],
+    "scripts": {
+        "build": "npm-run-all --sequential build:**",
+        "build:sass": "npm-run-all --sequential build:styles:**",
+        "build:blocks": "wp-scripts build --webpack-src-dir=mu-plugins/$npm_package_name-blocks/src --output-path=mu-plugins/$npm_package_name-blocks/build",
+        "build:scripts:theme": "wp-scripts build --webpack-src-dir=themes/$npm_package_name/assets/js/src --output-path=themes/$npm_package_name/assets/js/build",
+        "build:styles:block-styles": "postcss themes/$npm_package_name/assets/sass/block-stylesheets/*.scss --dir themes/$npm_package_name/assets/css --ext css --env production",
+        "build:styles:theme-stylesheet": "postcss themes/$npm_package_name/assets/sass/style.scss --output themes/$npm_package_name/style.css --env production",
+        "build:styles:theme-stylesheet-rtl": "rtlcss themes/$npm_package_name/style.css themes/$npm_package_name/style-rtl.css",
+        "build:styles:theme-editor": "postcss themes/$npm_package_name/assets/sass/style-editor.scss --output themes/$npm_package_name/style-editor.css --env production",
+        "format": "npm-run-all --sequential format:**",
+        "format:scripts": "npm-run-all --sequential format:scripts:**",
+        "format:scripts:theme": "wp-scripts format themes/$npm_package_name --no-error-on-unmatched-pattern",
+        "format:scripts:mu-plugins": "wp-scripts format mu-plugins --no-error-on-unmatched-pattern",
+        "format:styles": "npm-run-all --sequential format:styles:**",
+        "format:styles:theme": "npm run lint:styles:theme -- --fix",
+        "format:styles:mu-plugins": "npm run lint:styles:mu-plugins -- --fix",
+        "lint": "npm-run-all --sequential lint:**",
+        "lint:pkg-json": "wp-scripts lint-pkg-json",
+        "lint:readme-md": "wp-scripts lint-md-docs README.md",
+        "lint:scripts": "npm-run-all --sequential lint:scripts:**",
+        "lint:scripts:theme": "wp-scripts lint-js themes/$npm_package_name --no-error-on-unmatched-pattern",
+        "lint:scripts:mu-plugins": "wp-scripts lint-js mu-plugins --no-error-on-unmatched-pattern",
+        "lint:styles": "npm-run-all --sequential lint:styles:**",
+        "lint:styles:theme": "wp-scripts lint-style themes/$npm_package_name/**/*.{css,sass,scss} !themes/$npm_package_name/style*.css --allow-empty-input --report-descriptionless-disables --report-invalid-scope-disables --report-needless-disables",
+        "lint:styles:mu-plugins": "wp-scripts lint-style mu-plugins/**/*.{css,sass,scss} --allow-empty-input --report-descriptionless-disables --report-invalid-scope-disables --report-needless-disables",
+        "packages-update": "wp-scripts packages-update",
+        "check-engines": "wp-scripts check-engines",
+        "check-licenses": "wp-scripts check-licenses",
+        "start": "npm-run-all --parallel start:**",
+        "start:blocks": "wp-scripts start --webpack-src-dir=mu-plugins/$npm_package_name-blocks/src --output-path=mu-plugins/$npm_package_name-blocks/build",
+        "start:scripts:theme": "wp-scripts start --webpack-src-dir=themes/$npm_package_name/assets/js/src --output-path=themes/$npm_package_name/assets/js/build",
+        "start:styles:block-styles": "postcss themes/$npm_package_name/assets/sass/block-stylesheets/*.scss --dir themes/$npm_package_name/assets/css --ext css --env development --watch --verbose",
+        "start:styles:theme-stylesheet": "postcss themes/$npm_package_name/assets/sass/style.scss --output themes/$npm_package_name/style.css --env development --watch --verbose",
+        "start:styles:theme-editor": "postcss themes/$npm_package_name/assets/sass/style-editor.scss --output themes/$npm_package_name/style-editor.css --env development --watch --verbose"
+    }
+}

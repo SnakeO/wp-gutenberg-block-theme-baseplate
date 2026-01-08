@@ -1,0 +1,35 @@
+@use "variables" as *;
+
+@media (min-width: $breakpoint-mobile + 1) {
+
+	#modal-1-content > ul > li.wp-block-navigation-item.has-child.open-on-hover-click.wp-block-navigation-submenu > ul.wp-block-navigation__submenu-container {
+		min-width: 165px;
+		background-color: var(--wp--preset--color--gold);
+		border: 1px solid var(--wp--preset--color--contrast-one);
+		border-radius: 0;
+		padding: var(--wp--preset--spacing--20) var(--wp--preset--spacing--40);
+		box-shadow: none;
+		display: flex;
+		flex-direction: column;
+		gap: var(--wp--preset--spacing--20);
+
+		.wp-block-navigation-item {
+			margin: 0;
+			padding: 0;
+		}
+
+		.wp-block-navigation-item__content {
+			font-family: var(--wp--preset--font-family--plus-jakarta-sans);
+			font-weight: 700;
+			font-size: var(--wp--preset--font-size--normal);
+			line-height: 1.6;
+			color: var(--wp--preset--color--contrast-one);
+			text-decoration: none;
+			padding: 0;
+
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+	}
+}

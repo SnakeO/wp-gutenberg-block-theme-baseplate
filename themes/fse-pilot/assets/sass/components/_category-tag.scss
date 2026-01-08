@@ -1,0 +1,16 @@
+.category-tag {
+
+	a {
+		font-size: var(--wp--preset--font-size--tiny);
+		font-weight: 800;
+		text-transform: uppercase;
+		letter-spacing: 0.7px;
+		color: var(--wp--preset--color--accent-one);
+		text-decoration: none;
+		line-height: 1;
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+}

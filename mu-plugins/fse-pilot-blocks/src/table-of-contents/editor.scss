@@ -1,0 +1,18 @@
+/**
+ * Table of Contents block editor-only styles.
+ */
+
+.wp-block-fse-pilot-table-of-contents {
+	// In editor, TOC items are spans (not links) since they're not clickable.
+	.toc-item {
+		cursor: default;
+	}
+
+	// Placeholder message when no headings found.
+	.toc-placeholder {
+		font-size: 14px;
+		color: var(--wp--preset--color--contrast-two);
+		font-style: italic;
+		margin: 0;
+	}
+}

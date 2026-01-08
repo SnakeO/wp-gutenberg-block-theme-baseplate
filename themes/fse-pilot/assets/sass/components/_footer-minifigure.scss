@@ -1,0 +1,11 @@
+.footer-minifigure-icon {
+	z-index: 1;
+	position: absolute !important;
+	transform: translate(-50%, -59%);
+	left: 50%;
+}
+
+.footer-minifigure-icon img {
+	width: var(--wp--custom--icon-size--minifigure);
+	height: var(--wp--custom--icon-size--minifigure);
+}
